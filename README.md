@@ -30,7 +30,7 @@ Instead, you install it directly from your browser.
    ```
    https://brnezekiel.github.io/Digital-Logic/
    ```
-2. Once loaded, you’ll see a popup at the bottom:  
+2. Once loaded, you’ll see a popup at the bottom:  Alternatively,  tap the 3 dots on the top right, scroll down and you will find
    **“Install App”** or **“Add to Home Screen”**.  
 3. Tap **Install**.  
 4. The app will appear on your **home screen** like a normal app.  

@@ -38,6 +38,27 @@ Instead, you install it directly from your browser.
 
 ---
 
+
+---
+
+## 🖼️ Screenshots
+
+Here’s a quick look at the **Number System Converter (PWA)** in action 👇
+
+### 🔹 Github Pages link When clicked
+![Home Screen](assets/Step1.jpg)
+
+### 🔹 Where to download
+![Downloading section Example](assets/Step2.jpg)
+
+### 🔹 Step-by-Step Installation 
+![Step-by-Step](assets/Step3.jpg)
+
+### 🔹 Installed App (PWA)
+![Installed App](assets/Step4.jpg)
+
+---
+
 ### 🍏 On **iOS (iPhone/iPad)**
 1. Open the app’s link in **Safari**.  
 2. Tap the **Share button** (the square with an arrow at the bottom).  

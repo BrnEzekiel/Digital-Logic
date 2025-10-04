@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6200ee">
+
+  <title>Number System Converter</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 20px;
+      background: #f4f6fa;
+      color: #0b1220;
+    }
+    .card {
+      max-width: 750px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    input, select, button {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      margin: 6px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .output, .steps {
+      background: #111827;
+      color: #f9fafb;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Number System Converter</h1>
+
+    <label>Enter a number:</label>
+    <input id="numInput" placeholder="e.g. 1011.101 (binary) or 59.7737 (decimal)" />
+
+    <div class="selectors">
+      <label>Convert from:</label>
+      <select id="fromBase">
+        <option value="2">Binary (base 2)</option>
+        <option value="8">Octal (base 8)</option>
+        <option value="10" selected>Decimal (base 10)</option>
+        <option value="16">Hexadecimal (base 16)</option>
+      </select>
+
+      <label>Convert to:</label>
+      <select id="toBase">
+        <option value="2">Binary (base 2)</option>
+        <option value="8">Octal (base 8)</option>
+        <option value="10">Decimal (base 10)</option>
+        <option value="16" selected>Hexadecimal (base 16)</option>
+      </select>
+    </div>
+
+    <button onclick="convertNumber()">Convert</button>
+
+    <div class="section">
+      <h3>Result:</h3>
+      <div class="output" id="result">Result will appear here</div>
+    </div>
+
+    <div class="section">
+      <h3>Steps:</h3>
+      <div class="steps" id="steps">Steps will appear here</div>
+    </div>
+  </div>
+
+<script>
+const DIGITS = "0123456789ABCDEF";
+
+// Convert input string in base -> decimal (supports fractions)
+function parseToDecimal(numStr, base){
+  numStr = numStr.trim().toUpperCase();
+  let [intPart, fracPart] = numStr.split(".");
+  let value = 0;
+  let steps = [];
+
+  // Integer part
+  let power = intPart.length - 1;
+  for (let ch of intPart){
+    let d = DIGITS.indexOf(ch);
+    if (d < 0 || d >= base) throw new Error(`Invalid digit '${ch}' for base ${base}`);
+    let contribution = d * (base ** power);
+    steps.push(`${ch} × ${base}^${power} = ${contribution}`);
+    value += contribution;
+    power--;
+  }
+
+  // Fractional part
+  if (fracPart) {
+    let fracValue = 0;
+    for (let i = 0; i < fracPart.length; i++) {
+      let ch = fracPart[i];
+      let d = DIGITS.indexOf(ch);
+      if (d < 0 || d >= base) throw new Error(`Invalid digit '${ch}' for base ${base}`);
+      let contribution = d * (base ** -(i + 1));
+      steps.push(`${ch} × ${base}^(-${i+1}) = ${contribution}`);
+      fracValue += contribution;
+    }
+    value += fracValue;
+  }
+
+  steps.push(`Final decimal value = ${value}`);
+  return {value, steps};
+}
+
+// Convert decimal -> target base (supports fractions)
+function fromDecimal(value, base, precision = 8){
+  let intPart = Math.floor(value);
+  let fracPart = value - intPart;
+  let steps = [];
+
+  // Integer conversion
+  let digits = [];
+  if (intPart === 0) digits.push("0");
+  let temp = intPart;
+  while (temp > 0){
+    let rem = temp % base;
+    steps.push(`${temp} ÷ ${base} = ${Math.floor(temp/base)} remainder ${rem} (${DIGITS[rem]})`);
+    digits.push(DIGITS[rem]);
+    temp = Math.floor(temp / base);
+  }
+  digits.reverse();
+
+  // Fractional conversion
+  let fracDigits = [];
+  let count = 0;
+  while (fracPart > 0 && count < precision){
+    fracPart *= base;
+    let digit = Math.floor(fracPart);
+    fracDigits.push(DIGITS[digit]);
+    steps.push(`${fracPart.toFixed(6)} → digit ${DIGITS[digit]}`);
+    fracPart -= digit;
+    count++;
+  }
+
+  let result = digits.join("");
+  if (fracDigits.length > 0) result += "." + fracDigits.join("");
+  steps.push(`Final result = ${result}`);
+  return {result, steps};
+}
+
+function convertNumber(){
+  const input = document.getElementById("numInput").value;
+  const fromBase = Number(document.getElementById("fromBase").value);
+  const toBase = Number(document.getElementById("toBase").value);
+  const resultDiv = document.getElementById("result");
+  const stepsDiv = document.getElementById("steps");
+
+  if (!input) {
+    resultDiv.textContent = "Result will appear here";
+    stepsDiv.textContent = "Steps will appear here";
+    return;
+  }
+
+  try {
+    const {value: decimal, steps: toDecSteps} = parseToDecimal(input, fromBase);
+
+    if (toBase === 10) {
+      resultDiv.textContent = decimal;
+      stepsDiv.textContent = `Converting ${input} (base ${fromBase}) to decimal:\n\n${toDecSteps.join("\n")}`;
+    } else {
+      const {result, steps: fromDecSteps} = fromDecimal(decimal, toBase);
+      resultDiv.textContent = result;
+      stepsDiv.textContent = 
+        `Step 1: Convert ${input} (base ${fromBase}) → decimal:\n${toDecSteps.join("\n")}\n\n` +
+        `Step 2: Convert decimal ${decimal} → base ${toBase}:\n${fromDecSteps.join("\n")}`;
+    }
+
+  } catch(e){
+    resultDiv.textContent = "Error";
+    stepsDiv.textContent = e.message;
+  }
+}
+
+// Register service worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js")
+    .then(() => console.log("Service Worker registered"));
+}
+</script>
+</body>
+</html>

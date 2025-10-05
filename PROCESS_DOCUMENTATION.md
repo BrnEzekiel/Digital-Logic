@@ -4,7 +4,14 @@
 ### 🔖 Version: 1.0  
 **Maintainer:** [BrnEzekiel](https://github.com/BrnEzekiel)  
 **Date Updated:** October 2025  
+👥 Roles and Responsibilities
 
+| Role | Responsibilities | contacts
+|------|------------------|------------|
+| Maintainer | Manage releases and merges. |  ezekiel.16066@students.kyu.ac.ke
+| Developer | Write and test code. |murithi.21909@students.kyu.ac.ke & ezekiel.16066@students.kyu.ac.ke  
+| Tester | Validate conversions. | onyango.22794@students.kyu.ac.ke
+| Doc Lead | Maintain documentation. |  murithi.23216@students.kyu.ac.ke & otieno.21435@students.kyu.ac.ke
 
 ---
 
@@ -36,10 +43,9 @@ It serves as a **learning and utility tool** for students, educators, and progra
 | Module | Description |
 |---------|-------------|
 | `index.html` | The main entry point for the web app’s UI. Hosts the conversion interface. |
-| `script.js` | Contains logic for base conversions, input validation, and step explanations. |
 | `manifest.json` | Defines app metadata, icons, and display behavior for PWA installation. |
 | `service-worker.js` | Handles caching and offline access. Enables “Install App” functionality. |
-| `/assets/` | Stores images, icons, and style assets. |
+| `/assets/` | Stores images, screeshots of the PWA
 | `README.md` | Outlines basic project description, setup, and usage instructions. |
 
 ---
@@ -68,7 +74,7 @@ npx http-server
 ```
 Digital-Logic/
 │
-├── assets/                # images, icons, css
+├── assets/                # images, 
 ├── index.html             # main web interface
 ├── manifest.json          # PWA configuration
 ├── service-worker.js      # offline caching logic
@@ -100,7 +106,7 @@ Digital-Logic/
 
 ## 6. 🧰 Best Practices
 
-### Code
+### USAGE 
 - Use to convert any base to your desired base, hasle free.
 
 ## 7. 👥 Roles and Responsibilities

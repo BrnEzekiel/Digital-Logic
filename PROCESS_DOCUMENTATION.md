@@ -4,7 +4,7 @@
 ### 🔖 Version: 1.0  
 **Maintainer:** [BrnEzekiel](https://github.com/BrnEzekiel)  
 **Date Updated:** October 2025  
-**App link** [Converter](https://brnezekiel.github.io/Digital-Logic/)
+**App Link** [Converter](https://brnezekiel.github.io/Digital-Logic/)
 ---
 👥 Roles and Responsibilities
 
@@ -81,7 +81,6 @@ Digital-Logic/
 ├── manifest.json          # PWA configuration
 ├── service-worker.js      # offline caching logic
 ├── README.md              # quick project info
-└── LICENSE                # project license (MIT)
 ```
 
 ---
@@ -126,6 +125,7 @@ Digital-Logic/
 
 ✅ Test conversions  
 ✅ Validate PWA and offline mode   
+✅️ Validate installation steps
 
 
 

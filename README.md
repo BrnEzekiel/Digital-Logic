@@ -8,6 +8,17 @@ You can install it on your **Android or iOS device** like a native app, directly
 
 ---
 
+## 👥 Collaborators
+
+| Name | Registration Number | Email |
+|------|---------------------|--------|
+| **Chris Munene Murithi** | CT101/G/21909/24 | murithi.21909@students.kyu.ac.ke |
+| **Otieno Samwel Amos** | CT101/G/21435/24 | otieno.21435@students.kyu.ac.ke |
+| **Erick Minyara Onyango** | CT101/G/22794/24 | onyango.22794@students.kyu.ac.ke |
+| **Murithi Owen Muthomi** | CT101/G/23216/24 | murithi.23216@students.kyu.ac.ke |
+| **Ezekiel Brian Onyango** | CT101/G/16066/22 | ezekiel.16066@students.kyu.ac.ke |
+
+
 ## ✨ Features
 
 - ✅ Convert between **Binary (2), Octal (8), Decimal (10), and Hexadecimal (16)**.  
@@ -161,12 +172,3 @@ Built with ❤️ to help students and developers learn **number system conversi
 
 ---
 
-## 👥 Collaborators
-
-| Name | Registration Number | Email |
-|------|---------------------|--------|
-| **Chris Munene Murithi** | CT101/G/21909/24 | murithi.21909@students.kyu.ac.ke |
-| **Otieno Samwel Amos** | CT101/G/21435/24 | otieno.21435@students.kyu.ac.ke |
-| **Erick Minyara Onyango** | CT101/G/22794/24 | onyango.22794@students.kyu.ac.ke |
-| **Murithi Owen Muthomi** | CT101/G/23216/24 | murithi.23216@students.kyu.ac.ke |
-| **Ezekiel Brian Onyango** | CT101/G/16066/22 | ezekiel.16066@students.kyu.ac.ke |

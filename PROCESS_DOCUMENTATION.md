@@ -4,6 +4,8 @@
 ### 🔖 Version: 1.0  
 **Maintainer:** [BrnEzekiel](https://github.com/BrnEzekiel)  
 **Date Updated:** October 2025  
+**App link** [Converter](https://brnezekiel.github.io/Digital-Logic/)
+---
 👥 Roles and Responsibilities
 
 | Role | Responsibilities | contacts

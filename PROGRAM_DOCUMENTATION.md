@@ -5,7 +5,7 @@
 **Maintainer:** Ezekiel Brian Onyango  
 **Repository:** [github.com/BrnEzekiel/Digital-Logic](https://github.com/BrnEzekiel/Digital-Logic)  
 **Date Updated:** October 2025  
-
+**App link** [Converter](https://brnezekiel.github.io/Digital-Logic/)
 ---
 
 ## 1. 🎯 Purpose of the Program

@@ -55,10 +55,9 @@ The **Digital Logic Number System Converter** is a **Progressive Web App (PWA)**
 | File | Description |
 |------|-------------|
 | **index.html** | Main interface and UI layout. |
-| **script.js** | Contains number conversion logic and UI scripts. |
 | **manifest.json** | Defines PWA properties (icons, display, name). |
 | **service-worker.js** | Enables offline functionality through caching. |
-| **assets/** | Holds icons, CSS, and supporting assets. |
+| **assets/** | Holds Screenshots. |
 | **README.md** | Project summary and setup instructions. |
 | **PROCESS_DOCUMENTATION.md** | Workflow and process documentation. |
 
@@ -161,13 +160,14 @@ self.addEventListener('install', event => {
 
 ## 10. 👥 Program Roles and Contacts
 
-| Name | Role | Contact |
-|------|------|----------|
-| **Ezekiel Brian Onyango** | Project Maintainer / Lead Developer | ezekiel.16066@students.kyu.ac.ke |
-| **Chris Munene Murithi** | Frontend Engineer | murithi.21909@students.kyu.ac.ke |
-| **Otieno Samwel Amos** | Algorithm Developer / Logic Specialist | otieno.21435@students.kyu.ac.ke |
-| **Erick Minyara Onyango** | QA Engineer / Tester | onyango.22794@students.kyu.ac.ke |
-| **Murithi Owen Muthomi** | UI/UX Designer & Documentation Lead | murithi.23216@students.kyu.ac.ke |
+
+
+| Role | Responsibilities | contacts
+|------|------------------|------------|
+| Maintainer | Manage releases and merges. |  ezekiel.16066@students.kyu.ac.ke
+| Developer | Write and test code. |murithi.21909@students.kyu.ac.ke & ezekiel.16066@students.kyu.ac.ke  
+| Tester | Validate conversions. | onyango.22794@students.kyu.ac.ke
+| Doc Lead | Maintain documentation. |  murithi.23216@students.kyu.ac.ke & otieno.21435@students.kyu.ac.ke
 
 ---
 

@@ -64,7 +64,7 @@
     <h1>Number System Converter</h1>
 
     <label>Enter a number:</label>
-    <input id="numInput" placeholder="e.g. 1011.101 (binary) or 59.7737 (decimal)" />
+    <input id="numInput" placeholder="e.g. -1011.101 (binary) or -59.7737 (decimal)" />
 
     <div class="selectors">
       <label>Convert from:</label>
@@ -100,9 +100,14 @@
 <script>
 const DIGITS = "0123456789ABCDEF";
 
-// Convert input string in base -> decimal (supports fractions)
+// Convert input string in base -> decimal (supports fractions and negatives)
 function parseToDecimal(numStr, base){
   numStr = numStr.trim().toUpperCase();
+
+  // Detect negative
+  let isNegative = numStr.startsWith("-");
+  if (isNegative) numStr = numStr.slice(1);
+
   let [intPart, fracPart] = numStr.split(".");
   let value = 0;
   let steps = [];
@@ -132,12 +137,21 @@ function parseToDecimal(numStr, base){
     value += fracValue;
   }
 
-  steps.push(`Final decimal value = ${value}`);
+  if (isNegative) {
+    value = -value;
+    steps.push("Number is negative → Final decimal value = -" + Math.abs(value));
+  } else {
+    steps.push(`Final decimal value = ${value}`);
+  }
+
   return {value, steps};
 }
 
-// Convert decimal -> target base (supports fractions)
+// Convert decimal -> target base (supports fractions and negatives)
 function fromDecimal(value, base, precision = 8){
+  let isNegative = value < 0;
+  value = Math.abs(value);
+
   let intPart = Math.floor(value);
   let fracPart = value - intPart;
   let steps = [];
@@ -168,6 +182,8 @@ function fromDecimal(value, base, precision = 8){
 
   let result = digits.join("");
   if (fracDigits.length > 0) result += "." + fracDigits.join("");
+  if (isNegative) result = "-" + result;
+
   steps.push(`Final result = ${result}`);
   return {result, steps};
 }
